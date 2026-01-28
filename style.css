@@ -123,7 +123,7 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    padding-top: 200px;
+    padding-top: 300px;
   }
 }
 
@@ -822,3 +822,4 @@ button:focus {
   padding: 4px 8px;
   cursor: pointer;
 }
+
