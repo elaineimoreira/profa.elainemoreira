@@ -1,0 +1,819 @@
+/* ===================================================== */
+/* RESET BÁSICO                                          */
+/* ===================================================== */
+
+/* Seletor universal: aplica regras a TODOS os elementos */
+* {
+  margin: 0;                /* Remove as margens padrão do navegador */
+  padding: 0;               /* Remove os espaçamentos internos padrão */
+  box-sizing: border-box;   /* Inclui padding e borda no cálculo do tamanho */
+}
+
+/* ===================================================== */
+/* CORPO DA PÁGINA                                       */
+/* ===================================================== */
+
+/* Estilização geral do corpo do site */
+body {
+  font-family: Georgia, "Times New Roman", serif; /* Define a fonte padrão do site */
+  background-color: #f3efdf; /* Cor de fundo bege clara */
+  color: #1f2a2a;            /* Cor padrão do texto */
+  line-height: 1.6;          /* Espaçamento entre linhas para melhor leitura */
+}
+
+/* ===================================================== */
+/* CABEÇALHO FIXO                                        */
+/* ===================================================== */
+
+/* Estilo do cabeçalho principal */
+.header {
+  position: fixed;          /* Mantém o cabeçalho fixo na tela ao rolar */
+  top: 0;                   /* Posiciona no topo da página */
+  left: 0;                  /* Alinha à esquerda */
+  width: 100%;              /* Ocupa toda a largura da tela */
+  height: 80px;             /* Define a altura do cabeçalho */
+  background-color: #f3efdf;/* Cor de fundo do cabeçalho */
+  display: flex;            /* Ativa layout flexbox */
+  align-items: center;      /* Centraliza os itens verticalmente */
+  justify-content: space-between; /* Separa logo e menu */
+  padding: 0 60px;          /* Espaçamento interno lateral */
+  border-bottom: 1px solid rgba(0,0,0,0.15); /* Linha inferior sutil */
+  z-index: 1000;            /* Garante que fique acima de outros elementos */
+}
+
+/* ===================================================== */
+/* LOGO / NOME                                           */
+/* ===================================================== */
+
+/* Estilização do nome ou logotipo */
+.logo {
+  font-family: 'Playfair Display', serif; /* Fonte elegante */
+  font-weight: 700;                       /* Negrito */
+  white-space: nowrap;                   /* Evita quebra de linha */
+  font-size: clamp(18px, 4vw, 26px);     /* Tamanho fluido */
+}
+
+/* ===================================================== */
+/* MENU DE NAVEGAÇÃO                                     */
+/* ===================================================== */
+
+/* Estilo dos links do menu */
+.menu a {
+  font-family: 'Playfair Display', serif; /* Mantém coerência com a logo */
+  text-decoration: none;                  /* Remove sublinhado */
+  color: #1f2a2a;                         /* Cor do texto */
+  padding: 8px 14px;                      /* Área clicável */
+  border-radius: 4px;                     /* Cantos arredondados */
+
+  /* 🔥 Tipografia fluida */
+  font-size: clamp(14px, 2.5vw, 16px);    /* Diminui no mobile */
+
+  transition: background-color 0.3s ease; /* Hover suave */
+}
+
+/* Container do menu */
+.menu {
+  display: flex;             /* Ativa layout flexbox */
+  gap: 20px;                 /* Espaço entre os links do menu */
+}
+
+/* ===================================================== */
+/* MENU E CABEÇALHO RESPONSIVO                           */
+/* ===================================================== */
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+
+  /* Cabeçalho em telas pequenas */
+  .header {
+    flex-direction: column;  /* Empilha logo e menu */
+    height: auto;            /* Altura automática conforme conteúdo */
+    padding: 20px;           /* Espaçamento interno reduzido */
+  }
+
+  /* Menu em telas pequenas */
+  .menu {
+    margin-top: 10px;        /* Espaço entre logo e menu */
+    flex-wrap: wrap;         /* Permite quebra de linha */
+    justify-content: center; /* Centraliza os links */
+  }
+}
+
+/* ===================================================== */
+/* EFEITO HOVER NO MENU                                  */
+/* ===================================================== */
+
+/* Estilo aplicado ao passar o mouse sobre o link */
+.menu a:hover {
+  background-color: #d6c2a1; /* Muda o fundo do link no hover */
+}
+
+/* ===================================================== */
+/* CONTAINER PRINCIPAL                                   */
+/* ===================================================== */
+
+/* Área que envolve o conteúdo principal da página  */
+.container {
+  max-width: 1100px;         /* Largura máxima */
+  margin: 0 auto;            /* Centraliza horizontalmente */
+  padding-top: 140px;        /* Espaço para o menu fixo */
+  padding-left: 20px;        /* Espaço interno esquerdo */
+  padding-right: 20px;       /* Espaço interno direito */
+}
+
+/* ===================================================== */
+/* SEÇÃO SOBRE                                           */
+/* ===================================================== */
+
+/* Bloco principal da seção "Sobre" */
+.sobre {
+  max-width: 650px;          /* Limita a largura do conteúdo textual */
+}
+
+/* Título principal da seção Sobre */
+.sobre h1 {
+  font-size: 42px;           /* Tamanho grande para o título */
+  margin-bottom: 20px;      /* Espaço abaixo do título */
+}
+
+/* Parágrafos da seção Sobre */
+.sobre p {
+  font-size: 18px;           /* Tamanho confortável para leitura */
+}
+
+/* ===================================================== */
+/* LAYOUT SOBRE (GRID)                                   */
+/* ===================================================== */
+
+/* Layout em grid da seção Sobre */
+.sobre-layout {
+  display: grid;                          /* Ativa CSS Grid */
+  grid-template-columns: 1.1fr 0.9fr;     /* Duas colunas proporcionais */
+  gap: 4rem;                              /* Espaço entre colunas */
+  padding: 6rem 4rem;                     /* Espaçamento interno */
+  background-color: #E6D4BA;              /* Fundo bege mais escuro */
+  max-width: 1200px;                      /* Largura máxima */
+  margin: auto;                           /* Centraliza */
+}
+
+/* ===================================================== */
+/* LAYOUT DA SEÇÃO SOBRE */
+/* ===================================================== */
+
+/* Segunda definição da classe .sobre */
+/* Sobrescreve e complementa regras anteriores */
+.sobre {
+  display: flex;             /* Ativa layout flexível */
+  align-items: flex-start;   /* Alinha os itens no topo */
+  gap: 60px;                 /* Espaço entre foto e texto */
+  max-width: 1200px;         /* Largura máxima maior que a anterior */
+}
+
+/* ===================================================== */
+/* ELEMENTO MAIN                                         */
+/* ===================================================== */
+
+/* Área principal do conteúdo */
+main {
+  flex: 1;                   /* Faz o main ocupar o espaço disponível */
+}
+
+/* ===================================================== */
+/* FOTO DA SEÇÃO SOBRE                                   */
+/* ===================================================== */
+
+/* Estilo da imagem da seção Sobre */
+.sobre-foto img {
+  width: 400px;              /* Largura maior (antes era ~260px) */
+  height: auto;              /* Mantém proporção da imagem */
+  border-radius: 8px;        /* Cantos arredondados */
+  object-fit: cover;         /* Ajuste correto da imagem */
+}
+
+/* Imagem em telas grandes */
+.sobre-foto img {
+  width: 460px;              /* Largura maior para desktop grande */
+  height: auto;              /* Mantém proporção */
+  border-radius: 50%;        /* Formato circular */
+  object-fit: cover;         /* Ajuste correto da imagem */
+}
+
+/* Redução gradual da imagem conforme a tela diminui */
+@media (max-width: 1200px) {
+  .sobre-foto img {
+    width: 400px;            /* Desktop médio */
+  }
+}
+
+@media (max-width: 900px) {
+  .sobre-foto img {
+    width: 340px;            /* Tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre-foto img {
+    width: 260px;            /* Smartphones */
+  }
+}
+
+/* Impede que a imagem encolha no flexbox */
+.sobre-foto {
+  flex-shrink: 0;            /* Mantém tamanho da imagem */
+}
+
+/* ===================================================== */
+/* TEXTO DA SEÇÃO SOBRE                                  */
+/* ===================================================== */
+
+/* Título dentro do bloco de texto */
+.sobre-texto h1 {
+  font-size: clamp(32px, 5vw, 42px); /* Fonte responsiva com tamanho mínimo e máximo */
+  margin-bottom: 20px;               /* Espaço abaixo do título */
+}
+
+/* Parágrafos dentro do bloco de texto */
+.sobre-texto p {
+  font-size: clamp(16px, 2.5vw, 18px); /* Texto responsivo conforme largura da tela */
+  margin-bottom: 15px;                /* Espaçamento entre parágrafos */
+}
+
+/* Container do texto */
+.sobre-texto {
+  max-width: 560px;          /* Limita largura do texto */
+}
+
+/* Rótulo da seção */
+.sobre-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #3D2821;
+}
+
+/* Título da seção Sobre */
+.sobre-texto h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  line-height: 1.1;          /* Altura das linhas do título */
+  margin: 1rem 0 2rem;       /* Espaçamento vertical */
+  color: #26281F;
+}
+
+/* Parágrafos da seção Sobre */
+.sobre-texto p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+/* ===================================================== */
+/* BLOCO VISUAL                                          */
+/* ===================================================== */
+
+/* Área visual complementar */
+.sobre-visual {
+  background: linear-gradient(145deg, #26281F, #3D2821); /* Gradiente escuro */
+  border-radius: 6px;        /* Cantos arredondados */
+  display: flex;             /* Flexbox */
+  align-items: center;       /* Centraliza verticalmente */
+  justify-content: center;   /* Centraliza horizontalmente */
+}
+
+/* Conteúdo interno do bloco visual */
+.visual-conteudo {
+  text-align: center;        /* Centraliza o texto */
+  color: rgba(255, 255, 255, 0.65); /* Texto claro */
+}
+
+/* Letra ou elemento em destaque */
+.visual-conteudo .letra {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Texto complementar */
+.visual-conteudo p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* ===================================================== */
+/* ALTURA TOTAL DA PÁGINA                                */
+/* ===================================================== */
+
+/* Define altura total para html e body */
+html, body {
+  height: 100%;              /* Ocupa 100% da altura da viewport */
+}
+
+/* ===================================================== */
+/* ORGANIZAÇÃO VERTICAL DO BODY                          */
+/* ===================================================== */
+
+/* Corpo como container flexível vertical */
+body {
+  display: flex;             /* Ativa flexbox */
+  flex-direction: column;    /* Organiza elementos em coluna */
+}
+
+/* ===================================================== */
+/* RODAPÉ                                                */
+/* ===================================================== */
+
+/* Estilo geral do rodapé */
+.rodape {
+  background: linear-gradient(180deg, #26281F, #1f2119); /* Gradiente vertical escuro */
+  padding: 1.8rem 4rem;                                 /* Espaçamento interno */
+  border-top: 1px solid rgba(230, 212, 186, 0.15);       /* Linha superior sutil */
+}
+
+/* Container interno do rodapé */
+.rodape-conteudo {
+  max-width: 1200px;        /* Limita a largura do conteúdo */
+  margin: auto;             /* Centraliza horizontalmente */
+  display: flex;            /* Layout flexível */
+  justify-content: space-between; /* Distribui os elementos */
+  align-items: center;      /* Centraliza verticalmente */
+  color: rgba(230, 212, 186, 0.75); /* Cor padrão do texto */
+}
+
+/* ===================================================== */
+/* MARCA DO RODAPÉ                                       */
+/* ===================================================== */
+
+/* Estilo da marca / assinatura */
+.rodape-marca {
+  font-family: 'Playfair Display', serif; /* Fonte serifada elegante */
+  font-size: 1.1rem;                      /* Tamanho da fonte */
+  font-weight: 700;                       /* Negrito */
+  letter-spacing: 1px;                    /* Espaçamento entre letras */
+}
+
+/* ===================================================== */
+/* COPYRIGHT                                             */
+/* ===================================================== */
+
+/* Texto de direitos autorais */
+.rodape-copy {
+  font-family: 'Lato', sans-serif; /* Fonte sem serifa */
+  font-size: 0.75rem;              /* Fonte pequena */
+  text-align: center;              /* Centraliza o texto */
+}
+
+/* ===================================================== */
+/* PROPÓSITO                                             */
+/* ===================================================== */
+
+/* Texto complementar do rodapé */
+.rodape-proposito {
+  font-family: 'Lato', sans-serif;          /* Fonte sem serifa */
+  font-size: 0.7rem;                        /* Fonte menor */
+  color: rgba(230, 212, 186, 0.6);           /* Cor mais suave */
+}
+
+/* ===================================================== */
+/* RESPONSIVIDADE DO RODAPÉ                              */
+/* ===================================================== */
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+  .rodape-conteudo {
+    flex-direction: column;  /* Empilha os elementos verticalmente */
+    gap: 0.6rem;             /* Espaço entre os itens */
+    text-align: center;      /* Centraliza o texto */
+  }
+}
+
+
+/* ===================================================== */
+/* LAYOUT DA SEÇÃO SOBRE                                 */
+/* ===================================================== */
+
+/* Organização do bloco Sobre */
+.sobre {
+  display: flex;             /* Ativa layout flexbox */
+  align-items: center;       /* Centraliza verticalmente */
+  gap: 60px;                 /* Espaço entre imagem e texto */
+}
+
+/* ===================================================== */
+/* SEÇÃO DE MÍDIAS SOCIAIS                                */
+/* ===================================================== */
+
+/* Container principal da seção social */
+.social {
+  max-width: 1100px;         /* Largura máxima do conteúdo */
+  margin: 80px auto 40px auto; /* Espaçamento externo (topo, laterais automáticas, base) */
+  padding: 0 20px;           /* Espaçamento interno lateral */
+  text-align: center;        /* Centraliza o conteúdo textual */
+}
+
+/* Título da seção social */
+.social h2 {
+  font-size: 28px;           /* Tamanho do título */
+  margin-bottom: 25px;      /* Espaço abaixo do título */
+  color: #1f2a2a;            /* Cor do texto */
+}
+
+/* ===================================================== */
+/* LINKS DAS MÍDIAS SOCIAIS                               */
+/* ===================================================== */
+
+/* Container dos links */
+.social-links {
+  display: flex;             /* Layout flexível */
+  flex-wrap: wrap;           /* Permite quebra de linha */
+  justify-content: center;   /* Centraliza os links */
+  gap: 18px;                 /* Espaço entre os links */
+}
+
+/* Estilo individual dos links */
+.social-links a {
+  text-decoration: none;     /* Remove sublinhado */
+  color: #1f2a2a;            /* Cor do texto */
+  border: 1px solid #1f2a2a; /* Borda visível */
+  padding: 10px 18px;        /* Área clicável confortável */
+  border-radius: 25px;       /* Formato de botão arredondado */
+  font-size: 15px;           /* Tamanho da fonte */
+  transition: all 0.3s ease; /* Animação suave para hover */
+}
+
+/* ===================================================== */
+/* HOVER DOS LINKS                                       */
+/* ===================================================== */
+
+/* Estilo ao passar o mouse sobre os links */
+.social-links a:hover {
+  background-color: #1f2a2a; /* Fundo escuro no hover */
+  color: #e9d8be;            /* Texto claro no hover */
+}
+
+/* ===================================================== */
+/* AJUSTE DE TAMANHO DOS LINKS (FORA DE MEDIA QUERY)     */
+/* ===================================================== */
+
+/* Redefinição do tamanho dos links */
+/* (Será aplicada em TODAS as resoluções) */
+.social-links a {
+  font-size: 14px;           /* Fonte levemente menor */
+  padding: 8px 14px;         /* Espaçamento interno reduzido */
+}
+
+
+/* ===================================================== */
+/* AJUSTE RESPONSIVO FINAL DA SEÇÃO SOBRE                */
+/* ===================================================== */
+
+/* Em telas médias, centraliza tudo */
+@media (max-width: 900px) {
+  .sobre {
+    flex-direction: column;  /* Empilha imagem e texto */
+    align-items: center;     /* Centraliza os itens */
+    text-align: center;      /* Centraliza o texto */
+  }
+}
+
+/* ===================================================== */
+/* SEÇÃO FORMAÇÃO / TRAJETÓRIA                           */
+/* ===================================================== */
+
+/* Container principal da seção de formação */
+.timeline-section {
+  background-color: #f3efdf; /* Fundo bege */
+  padding: 6rem 2rem;        /* Espaçamento interno vertical e lateral */
+  text-align: center;        /* Centraliza textos */
+}
+
+/* Rótulo pequeno acima do título */
+.timeline-label {
+  font-family: 'Lato', sans-serif; /* Fonte sem serifa */
+  letter-spacing: 2px;             /* Espaçamento entre letras */
+  font-size: 0.75rem;              /* Fonte pequena */
+  color: #3D2821;                  /* Cor marrom escuro */
+}
+
+/* Título principal da seção */
+.timeline-section h2 {
+  font-family: 'Playfair Display', serif; /* Fonte serifada elegante */
+  font-size: 2.8rem;                     /* Tamanho grande */
+  margin: 1rem 0 4rem;                   /* Espaçamento superior e inferior */
+  color: #26281F;                        /* Cor escura */
+}
+
+/* ===================================================== */
+/* TIPOGRAFIA RESPONSIVA – PÁGINA FORMAÇÃO               */
+/* ===================================================== */
+
+/* Título principal da seção */
+.timeline-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); /* Reduz no mobile */
+}
+
+/* Título de cada item */
+.timeline-item h3 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Escala suavemente */
+}
+
+/* Subtítulo (instituição) */
+.timeline-item h4 {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+}
+
+/* Texto descritivo */
+.timeline-item p {
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+}
+
+/* Datas */
+.timeline-date {
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+}
+
+
+/* ===================================================== */
+/* LINHA DO TEMPO                                       */
+/* ===================================================== */
+
+/* Container da timeline */
+.timeline {
+  position: relative;        /* Referência para elementos absolutos */
+  max-width: 900px;          /* Largura máxima */
+  margin: auto;              /* Centraliza horizontalmente */
+}
+
+/* Linha vertical central da timeline */
+.timeline::before {
+  content: '';               /* Necessário para pseudo-elemento */
+  position: absolute;        /* Posicionamento absoluto */
+  left: 50%;                 /* Centraliza horizontalmente */
+  top: 0;                    /* Início no topo */
+  width: 2px;                /* Espessura da linha */
+  height: 100%;              /* Altura total da timeline */
+  background-color: rgba(0,0,0,0.25); /* Cor suave */
+  transform: translateX(-50%); /* Ajuste fino de centralização */
+}
+
+/* ===================================================== */
+/* ITENS DA TIMELINE                                     */
+/* ===================================================== */
+
+/* Estilo base de cada item */
+.timeline-item {
+  width: 45%;                /* Ocupa menos da metade da largura */
+  padding: 1.5rem 2rem;      /* Espaçamento interno */
+  position: relative;        /* Referência para o marcador */
+  margin-bottom: -3rem;      /* Aproxima os itens verticalmente */
+}
+
+/* Marcador circular de cada item */
+.timeline-item::before {
+  content: '';               /* Necessário para o pseudo-elemento */
+  position: absolute;        /* Posicionamento relativo ao item */
+  top: 1.5rem;               /* Alinha verticalmente ao texto */
+  width: 10px;               /* Largura do ponto */
+  height: 10px;              /* Altura do ponto */
+  background-color: #3D2821; /* Cor do marcador */
+  border-radius: 50%;        /* Formato circular */
+}
+
+/* ===================================================== */
+/* ITENS ALINHADOS À ESQUERDA                             */
+/* ===================================================== */
+
+/* Item posicionado à esquerda da linha */
+.timeline-item.left {
+  text-align: right;         /* Texto alinhado à direita */
+  left: 0;                   /* Posicionado à esquerda */
+}
+
+/* Marcador do item à esquerda */
+.timeline-item.left::before {
+  right: -36px;              /* Posiciona o ponto próximo à linha central */
+}
+
+/* ===================================================== */
+/* ITENS ALINHADOS À DIREITA                              */
+/* ===================================================== */
+
+/* Item posicionado à direita da linha */
+.timeline-item.right {
+  left: 55%;                 /* Move o item para a direita */
+  text-align: left;          /* Texto alinhado à esquerda */
+}
+
+/* Marcador do item à direita */
+.timeline-item.right::before {
+  left: -36px;               /* Posiciona o ponto próximo à linha central */
+}
+
+/* ===================================================== */
+/* CONTEÚDO DOS ITENS                                    */
+/* ===================================================== */
+
+/* Data da formação */
+.timeline-date {
+  font-size: 0.8rem;         /* Fonte pequena */
+  font-family: 'Lato', sans-serif; /* Fonte sem serifa */
+  color: rgba(0,0,0,0.6);    /* Cor suave */
+}
+
+/* Título principal do item */
+.timeline-item h3 {
+  font-family: 'Playfair Display', serif; /* Fonte elegante */
+  font-size: 1.2rem;                     /* Tamanho médio */
+  margin: 0.5rem 0 0.2rem;               /* Espaçamento */
+  color: #26281F;                        /* Cor escura */
+}
+
+/* Subtítulo (instituição) */
+.timeline-item h4 {
+  font-size: 0.9rem;         /* Fonte menor */
+  font-weight: 400;          /* Peso normal */
+  color: rgba(0,0,0,0.6);    /* Cor suave */
+  margin-bottom: 0.8rem;     /* Espaço inferior */
+}
+
+/* Texto descritivo */
+.timeline-item p {
+  font-size: 0.95rem;        /* Tamanho do texto */
+  line-height: 1.6;          /* Espaçamento entre linhas */
+}
+
+/* ===================================================== */
+/* SEÇÃO DE PUBLICAÇÕES                                  */
+/* ===================================================== */
+
+/* Container principal da seção de publicações */
+.publicacoes-section {
+  background-color: #f3efdf; /* Fundo bege */
+  padding: 6rem 2rem;        /* Espaçamento interno vertical e lateral */
+  text-align: center;        /* Centraliza os textos */
+}
+
+/* Rótulo pequeno acima do título */
+.section-label {
+  font-family: 'Lato', sans-serif; /* Fonte sem serifa */
+  font-size: 0.75rem;              /* Tamanho pequeno */
+  letter-spacing: 2px;             /* Espaçamento entre letras */
+  color: #3D2821;                  /* Cor marrom */
+}
+
+/* Título principal da seção */
+.publicacoes-section h2 {
+  font-family: 'Playfair Display', serif; /* Fonte serifada elegante */
+  font-size: 2.8rem;                     /* Tamanho grande */
+  margin: 1rem 0 4rem;                   /* Espaçamento superior e inferior */
+  color: #26281F;                        /* Cor escura */
+}
+
+/* Lista que envolve os cards de publicações */
+.publicacoes-list {
+  max-width: 900px;          /* Largura máxima */
+  margin: auto;              /* Centraliza horizontalmente */
+}
+
+/* ===================================================== */
+/* CARD DE PUBLICAÇÃO                                    */
+/* ===================================================== */
+
+/* Estrutura principal do card */
+.publicacao-card {
+  display: flex;             /* Layout flexível */
+  align-items: center;       /* Centraliza verticalmente */
+  background-color: rgba(255,255,255,0.55); /* Fundo semi-transparente */
+  border-radius: 6px;        /* Cantos arredondados */
+  padding: 1.8rem 2rem;      /* Espaçamento interno */
+  margin-bottom: 2rem;       /* Espaço entre os cards */
+  text-align: left;          /* Texto alinhado à esquerda */
+}
+
+/* Ícone do card */
+.publicacao-icon {
+  width: 42px;               /* Largura do ícone */
+  height: 42px;              /* Altura do ícone */
+  background-color: rgba(0,0,0,0.08); /* Fundo suave */
+  border-radius: 4px;        /* Cantos levemente arredondados */
+  display: flex;             /* Flexbox para centralização */
+  align-items: center;       /* Centraliza verticalmente */
+  justify-content: center;   /* Centraliza horizontalmente */
+  font-size: 1.2rem;         /* Tamanho do ícone */
+  margin-right: 1.5rem;      /* Espaço entre ícone e texto */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+                              /* Animações suaves */
+}
+
+/* ===================================================== */
+/* METADADOS DA PUBLICAÇÃO                               */
+/* ===================================================== */
+
+/* Linha com tipo e ano */
+.publicacao-meta {
+  display: flex;             /* Itens em linha */
+  align-items: center;       /* Centraliza verticalmente */
+  gap: 0.6rem;               /* Espaço entre tag e ano */
+  margin-bottom: 0.4rem;     /* Espaço abaixo dos metadados */
+}
+
+/* Tag de tipo (ex: Artigo) */
+.tag {
+  background-color: rgba(0,0,0,0.1); /* Fundo suave */
+  padding: 0.2rem 0.6rem;            /* Espaçamento interno */
+  font-size: 0.7rem;                 /* Fonte pequena */
+  border-radius: 4px;                /* Cantos arredondados */
+  font-family: 'Lato', sans-serif;   /* Fonte sem serifa */
+}
+
+/* Ano da publicação */
+.ano {
+  font-size: 0.75rem;        /* Fonte pequena */
+  color: rgba(0,0,0,0.6);    /* Cor suave */
+}
+
+/* ===================================================== */
+/* CONTEÚDO DO CARD                                      */
+/* ===================================================== */
+
+/* Título da publicação */
+.publicacao-content h3 {
+  font-family: 'Playfair Display', serif; /* Fonte elegante */
+  font-size: 1.2rem;                     /* Tamanho médio */
+  color: #26281F;                        /* Cor escura */
+  margin-bottom: 0.2rem;                /* Espaço inferior */
+}
+
+/* Descrição ou evento da publicação */
+.publicacao-content p {
+  font-size: 0.9rem;         /* Tamanho do texto */
+  color: rgba(0,0,0,0.65);   /* Cor mais suave */
+}
+
+/* ===================================================== */
+/* EFEITO HOVER NO CARD                                  */
+/* ===================================================== */
+
+/* Efeito aplicado ao passar o mouse no card */
+.publicacao-card:hover .publicacao-icon {
+  background-color: #f3efdf; /* Fundo bege */
+  color: #E6D4BA;            /* Cor clara */
+  transform: scale(1.05);    /* Leve aumento */
+}
+
+
+
+/* ===================================================== */
+/* ACESSIBILIDADE  */
+/* ===================================================== */
+
+
+/* FOCO VISÍVEL PARA NAVEGAÇÃO POR TECLADO: quem navega com Tab sabe onde está. */
+
+a:focus,
+button:focus {
+  outline: 3px solid #3D2821; /* Contorno visível */
+  outline-offset: 3px;       /* Afasta da borda */
+}
+
+/* LINK "PULAR PARA CONTEÚDO"                            */
+
+.skip-link {
+  position: absolute;         /* Remove do fluxo normal */
+  top: -40px;                 /* Esconde fora da tela */
+  left: 10px;
+  background-color: #f3efdf;  /* Fundo escuro */
+  color: #ffffff;             /* Texto branco */
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 2000;
+}
+
+/* Torna visível quando recebe foco */
+.skip-link:focus {
+  top: 10px;                  /* Aparece na tela */
+}
+
+
+/* BOTÕES DE ACESSIBILIDADE        */
+
+
+.acessibilidade {
+  display: flex;              /* Mostra os botões lado a lado */
+  gap: 8px;                   /* Espaço entre eles */
+  align-items: center;        /* Alinha verticalmente */
+}
+
+.acessibilidade button {
+  background-color: transparent;
+  border: 1px solid #1f2a2a;
+  color: #1f2a2a;
+  font-size: 0.9rem;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
