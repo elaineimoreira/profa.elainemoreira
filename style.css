@@ -31,7 +31,7 @@ body {
   top: 0;                   /* Posiciona no topo da página */
   left: 0;                  /* Alinha à esquerda */
   width: 100%;              /* Ocupa toda a largura da tela */
-  height: 90px;             /* Define a altura do cabeçalho */
+  height: 80px;             /* Define a altura do cabeçalho */
   background-color: #f3efdf;/* Cor de fundo do cabeçalho */
   display: flex;            /* Ativa layout flexbox */
   align-items: center;      /* Centraliza os itens verticalmente */
@@ -121,6 +121,16 @@ body {
   padding-right: 20px;       /* Espaço interno direito */
 }
 
+.main-container {
+  margin-top: 120px;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-top: 120px;
+  }
+}
+
 /* ===================================================== */
 /* SEÇÃO SOBRE                                           */
 /* ===================================================== */
@@ -176,7 +186,6 @@ body {
 /* Área principal do conteúdo */
 main {
   flex: 1;                   /* Faz o main ocupar o espaço disponível */
-  padding-top: 90px; /* mesmo valor da altura do menu */
 }
 
 /* ===================================================== */
@@ -218,15 +227,6 @@ main {
   }
 }
 
-@media (max-width: 768px) {
-  header {
-    height: 110px;
-  }
-
-  main {
-    padding-top: 110px;
-  }
-}
 /* Impede que a imagem encolha no flexbox */
 .sobre-foto {
   flex-shrink: 0;            /* Mantém tamanho da imagem */
@@ -826,6 +826,3 @@ button:focus {
   padding: 4px 8px;
   cursor: pointer;
 }
-
-
-
