@@ -176,6 +176,7 @@ body {
 /* Área principal do conteúdo */
 main {
   flex: 1;                   /* Faz o main ocupar o espaço disponível */
+  padding-top: 90px; /* mesmo valor da altura do menu */
 }
 
 /* ===================================================== */
@@ -217,6 +218,15 @@ main {
   }
 }
 
+@media (max-width: 768px) {
+  header {
+    height: 110px;
+  }
+
+  main {
+    padding-top: 110px;
+  }
+}
 /* Impede que a imagem encolha no flexbox */
 .sobre-foto {
   flex-shrink: 0;            /* Mantém tamanho da imagem */
@@ -816,5 +826,6 @@ button:focus {
   padding: 4px 8px;
   cursor: pointer;
 }
+
 
 
