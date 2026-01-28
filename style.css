@@ -88,7 +88,7 @@ body {
   .header {
     flex-direction: column;  /* Empilha logo e menu */
     height: auto;            /* Altura automática conforme conteúdo */
-    padding: 20px;           /* Espaçamento interno reduzido */
+    padding: 10px;           /* Espaçamento interno reduzido */
   }
 
   /* Menu em telas pequenas */
@@ -822,5 +822,6 @@ button:focus {
   padding: 4px 8px;
   cursor: pointer;
 }
+
 
 
